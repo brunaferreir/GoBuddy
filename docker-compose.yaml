@@ -1,0 +1,11 @@
+version: '3.8' # Versão da especificação do Docker Compose
+
+services:
+  gobuddy: # Nome do seu serviço (pode ser qualquer nome descritivo)
+    build: . # Indica que o Docker deve construir a imagem a partir do Dockerfile no diretório atual
+    container_name: gobuddy-app # Define um nome específico para o contêiner
+    ports:
+      - "8501:8501" # Mapeia a porta 8501 do host para a porta 8501 do contêiner
+    environment: # Variáveis de ambiente que serão passadas para o contêiner
+      - GEMINI_API_KEY=${GEMINI_API_KEY} # Pega a API Key do seu arquivo .env local do host
+  
